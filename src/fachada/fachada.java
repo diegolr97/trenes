@@ -25,8 +25,8 @@ private estaciones estaciones = new Estacionesdao();
        return true;
      }
     
-    public boolean deleteEstacion(int cod_estacion){
-        estaciones.deleteEstacion(cod_estacion);
+    public boolean deleteEstacion(int codEstacion){
+        estaciones.deleteEstacion(codEstacion);
         return true;
     }
     
@@ -34,10 +34,31 @@ private estaciones estaciones = new Estacionesdao();
          return estaciones.TablaEstaciones();
     }
     
+    public boolean modificarEstacion(int codEstacion, String nombre, String localidad, String direccion, int codPostal){
+        estaciones.modificarEstacion(codEstacion, nombre, localidad, direccion, codPostal);
+        return true;
+    }
     
-//    public int numeroEstacion(){
-//        return estaciones.numeroEstacion();
-//    }
+    
+private cocheras cocheras = new Cocherasdao();
+
+    public boolean addCochera(int capacidad){
+        cocheras.addCochera(capacidad);
+        return true;
+}
+    public DefaultTableModel TablaCocheras(){
+        return cocheras.TablaCocheras();
+    }
+    
+    public boolean modificarCochera(int codCochera, int capacidad){
+        cocheras.modificarCochera(codCochera, capacidad);
+        return true;
+    }
+    
+    public boolean deleteCochera(int codCochera){
+        cocheras.deleteCochera(codCochera);
+        return true;
+    }
     
     
             

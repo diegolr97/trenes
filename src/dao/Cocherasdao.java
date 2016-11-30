@@ -52,10 +52,10 @@ public class Cocherasdao implements cocheras  {
         };
         session = HibernateUtil.getSessionFactory().openSession();
         String[] columns = {"Código", "Capacidad"}; 
-        Query createQuery = session.createQuery("select count(codCochera) from Cocheras"); 
+        Query createQuery = session.createQuery("select count(codCochera) from Cochera"); 
         
         int c =  Integer.parseInt(createQuery.uniqueResult().toString());
-        Query createQuery2 = session.createQuery("from Cocheras");
+        Query createQuery2 = session.createQuery("from Cochera");
         
         Object data[][] = new Object[c][2];
         List rs = createQuery2.list();
@@ -72,24 +72,50 @@ public class Cocherasdao implements cocheras  {
         return m;
     }
 
+
+
     @Override
-    public boolean deleteCochera(int cod_cochera) {
+    public boolean modificarCochera(int codCochera, int capacidad) {
+        c.setCodCochera(codCochera);
+        c.setCapacidad(capacidad);
+       
         Session session = null;
+        Transaction transaction = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
-            Transaction beginTransaction = session.beginTransaction();
-            Query createQuery = session.createQuery("delete from Student s where s.id =:id");
-            createQuery.setParameter("id", cod_cochera);
-            createQuery.executeUpdate();
-            beginTransaction.commit();
+            transaction = session.beginTransaction();
+            session.update(c);
+            transaction.commit();
             return true;
         } catch (Exception e) {
             e.printStackTrace();
             return false;
         } finally {
             session.close();
+            
         }
+        
+        
+        
+        
     }
+
+    @Override
+    public boolean deleteCochera(int codCochera) {
+        
+        Session session = null;
+        
+            session = HibernateUtil.getSessionFactory().openSession();
+            Transaction beginTransaction = session.beginTransaction();
+             
+            c =(Cochera) session.load(Cochera.class, codCochera);
+            session.delete(c);
+            beginTransaction.commit();
+            session.close();
+            return true;
+    }
+
+    
         
     }
 

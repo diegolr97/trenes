@@ -45,7 +45,8 @@ public class Estacionesdao implements estaciones
             return false;
         } finally {
             session.close();
-            return false;
+            
+            
         }
     }
 
@@ -88,45 +89,70 @@ public class Estacionesdao implements estaciones
 
     @Override
     public boolean deleteEstacion(int codEstacion) {
-        l.setCodEstacion(codEstacion);
+        
         Session session = null;
-        try {
+        
             session = HibernateUtil.getSessionFactory().openSession();
             Transaction beginTransaction = session.beginTransaction();
-            Query createQuery = session.createQuery("delete from Estaciones l where l.codEstacion =:codEstacion");
-            createQuery.setParameter("codEstacion", codEstacion);
-            createQuery.executeUpdate();
+             
+            l =(Estacion) session.load(Estacion.class, codEstacion);
+            session.delete(l);
             beginTransaction.commit();
+            session.close();
+            return true;
+           }
+
+//    @Override
+//    public boolean modificarEstacion(int codEstacion, String nombre, String localidad, String direccion, int codPostal) {
+//        Session session = null;
+//        session = HibernateUtil.getSessionFactory().openSession();
+//            Transaction beginTransaction = session.beginTransaction();
+//            l= (Estacion) session.load(Estacion.class, codEstacion);
+//            l.setNombre(nombre);
+//            l.setLocalidad(localidad);
+//            l.setDireccion(direccion);
+//            l.setCodPostal(codPostal);
+//            
+//            session.update(l);
+//            beginTransaction.commit();
+//            session.close();
+//            return true;
+//            
+//        
+//        
+//    }
+    
+    @Override
+    public boolean modificarEstacion(int codEstacion, String nombre, String localidad, String direccion, int codPostal){
+        l.setCodEstacion(codEstacion);
+        l.setNombre(nombre);
+        l.setLocalidad(localidad);
+        l.setDireccion(direccion);
+        l.setCodPostal(codPostal);
+        Session session = null;
+        Transaction transaction = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            transaction = session.beginTransaction();
+            session.update(l);
+            transaction.commit();
             return true;
         } catch (Exception e) {
             e.printStackTrace();
             return false;
         } finally {
             session.close();
+            
         }
-    
         
-}
-}
+    }
+    
+   
 
-//    @Override
-//    public int numeroEstacion() {
-//        int cod=0;
-//    
-//        String c="select max(cod_estacion)+1 as total from Estaciones l";
-//        Session session=HibernateUtil.getSessionFactory().openSession();
-//        Query q=session.createQuery(c);
-//       List results=q.list();
-//      Iterator codigo=results.iterator();
-//      int i=0;
-//      while(codigo.hasNext()){
-//     cod = q.getInt("total");
-//     i++;
-//}
-//session.close();
-//
-//    }
-//}
+   
+           }
+
+
     
 
 

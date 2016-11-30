@@ -4,7 +4,7 @@
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://192.168.28.3:3306/dam20_trenes?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.url">jdbc:mysql://79.148.236.236:3306/dam20_trenes?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">dam20</property>
     <property name="hibernate.connection.password">salesianas</property>
     <mapping resource="mapeo/Lineaestacion.hbm.xml"/>

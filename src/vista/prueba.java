@@ -57,9 +57,23 @@ fachada f = new fachada();
         txtCodigoPostalEstacion = new javax.swing.JFormattedTextField();
         jLabel1 = new javax.swing.JLabel();
         txtCodigoEstacion = new javax.swing.JTextField();
+        Cocheras = new javax.swing.JDialog();
+        jPanel4 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tbCocheras = new javax.swing.JTable();
+        jPanel5 = new javax.swing.JPanel();
+        btnNuevaCochera = new javax.swing.JButton();
+        btnGuardarCochera = new javax.swing.JButton();
+        btnEliminarCochera = new javax.swing.JButton();
+        btnModificarCochera = new javax.swing.JButton();
+        btnSalirCochera = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
+        txtCodigoCochera = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        txtCapacidadCochera = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         btnTrenes = new javax.swing.JButton();
-        btnViajes = new javax.swing.JButton();
+        btnCocheras = new javax.swing.JButton();
         btnLineas = new javax.swing.JButton();
         btnEstaciones = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -86,6 +100,11 @@ fachada f = new fachada();
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         btnNuevaEstacion.setText("Nuevo");
+        btnNuevaEstacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevaEstacionActionPerformed(evt);
+            }
+        });
 
         btnGuardarEstacion.setText("Guardar");
         btnGuardarEstacion.addActionListener(new java.awt.event.ActionListener() {
@@ -102,6 +121,11 @@ fachada f = new fachada();
         });
 
         btnModificarEstacion.setText("Modificar");
+        btnModificarEstacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarEstacionActionPerformed(evt);
+            }
+        });
 
         btnSalirEstacion.setText("Salir");
         btnSalirEstacion.addActionListener(new java.awt.event.ActionListener() {
@@ -149,12 +173,14 @@ fachada f = new fachada();
         jLabel6.setText("Localidad:");
 
         try {
-            txtCodigoPostalEstacion.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#########")));
+            txtCodigoPostalEstacion.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
 
         jLabel1.setText("Código:");
+
+        txtCodigoEstacion.setEditable(false);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -224,6 +250,146 @@ fachada f = new fachada();
             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
+        tbCocheras.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tbCocheras.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tbCocheras.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbCocherasMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tbCocheras);
+
+        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        btnNuevaCochera.setText("Nuevo");
+        btnNuevaCochera.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevaCocheraActionPerformed(evt);
+            }
+        });
+
+        btnGuardarCochera.setText("Guardar");
+        btnGuardarCochera.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarCocheraActionPerformed(evt);
+            }
+        });
+
+        btnEliminarCochera.setText("Eliminar");
+        btnEliminarCochera.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarCocheraActionPerformed(evt);
+            }
+        });
+
+        btnModificarCochera.setText("Modificar");
+        btnModificarCochera.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarCocheraActionPerformed(evt);
+            }
+        });
+
+        btnSalirCochera.setText("Salir");
+        btnSalirCochera.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirCocheraActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(btnNuevaCochera, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(btnGuardarCochera, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnEliminarCochera, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnModificarCochera, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                .addComponent(btnSalirCochera, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnNuevaCochera)
+                    .addComponent(btnGuardarCochera)
+                    .addComponent(btnEliminarCochera)
+                    .addComponent(btnModificarCochera)
+                    .addComponent(btnSalirCochera))
+                .addContainerGap(43, Short.MAX_VALUE))
+        );
+
+        jLabel12.setText("Código:");
+
+        txtCodigoCochera.setEditable(false);
+
+        jLabel13.setText("Capacidad:");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(150, 150, 150)
+                .addComponent(jLabel12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtCodigoCochera, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53)
+                .addComponent(jLabel13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtCapacidadCochera, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCodigoCochera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13)
+                    .addComponent(txtCapacidadCochera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(111, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout CocherasLayout = new javax.swing.GroupLayout(Cocheras.getContentPane());
+        Cocheras.getContentPane().setLayout(CocherasLayout);
+        CocherasLayout.setHorizontalGroup(
+            CocherasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        CocherasLayout.setVerticalGroup(
+            CocherasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -244,21 +410,21 @@ fachada f = new fachada();
         });
         jPanel1.add(btnTrenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 170, 170));
 
-        btnViajes.setForeground(new java.awt.Color(0, 51, 255));
-        btnViajes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/viaje.png"))); // NOI18N
-        btnViajes.setText("VIAJES");
-        btnViajes.setBorderPainted(false);
-        btnViajes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnViajes.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnViajes.setIconTextGap(14);
-        btnViajes.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        btnViajes.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnViajes.addActionListener(new java.awt.event.ActionListener() {
+        btnCocheras.setForeground(new java.awt.Color(0, 51, 255));
+        btnCocheras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/garaje transparente.png"))); // NOI18N
+        btnCocheras.setText("Cocheras");
+        btnCocheras.setBorderPainted(false);
+        btnCocheras.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCocheras.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnCocheras.setIconTextGap(14);
+        btnCocheras.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        btnCocheras.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnCocheras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnViajesActionPerformed(evt);
+                btnCocherasActionPerformed(evt);
             }
         });
-        jPanel1.add(btnViajes, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 270, 170, 170));
+        jPanel1.add(btnCocheras, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 270, 170, 170));
 
         btnLineas.setForeground(new java.awt.Color(0, 51, 255));
         btnLineas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/trentrasnparente.png"))); // NOI18N
@@ -313,6 +479,24 @@ fachada f = new fachada();
 
     private void btnEstacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstacionesActionPerformed
        this.Estaciones.setVisible(true);
+       this.tbEstaciones.setModel(f.TablaEstaciones());
+       
+        this.btnNuevaEstacion.setEnabled(true);
+        this.btnGuardarEstacion.setEnabled(false);
+        this.btnEliminarEstacion.setEnabled(false);
+        this.btnModificarEstacion.setEnabled(false);
+        
+        
+        this.txtNombreEstacion.setEditable(false);
+        this.txtDireccionEstacion.setEditable(false);
+        this.txtLocalidadEstacion.setEditable(false);
+        this.txtCodigoPostalEstacion.setEditable(false);
+        
+        this.txtCodigoEstacion.setText("");
+        this.txtNombreEstacion.setText("");
+        this.txtDireccionEstacion.setText("");
+        this.txtLocalidadEstacion.setText("");
+        this.txtCodigoPostalEstacion.setText("");
 
        
        
@@ -322,37 +506,271 @@ fachada f = new fachada();
         
     }//GEN-LAST:event_btnLineasActionPerformed
 
-    private void btnViajesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViajesActionPerformed
+    private void btnCocherasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCocherasActionPerformed
+        Cocheras.setVisible(true);
+        Cocheras.setLocationRelativeTo(null);
+        this.tbCocheras.setModel(f.TablaCocheras());
         
-    }//GEN-LAST:event_btnViajesActionPerformed
+        this.btnNuevaCochera.setEnabled(true);
+        this.btnGuardarCochera.setEnabled(false);
+        this.btnEliminarCochera.setEnabled(false);
+        this.btnModificarCochera.setEnabled(false);
+        
+        
+        
+        this.txtCapacidadCochera.setEditable(false);
+        
+        this.txtCodigoCochera.setText("");
+        this.txtCapacidadCochera.setText("");
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_btnCocherasActionPerformed
 
     private void btnTrenesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTrenesActionPerformed
        
     }//GEN-LAST:event_btnTrenesActionPerformed
 
     private void btnGuardarEstacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarEstacionActionPerformed
-        if(f.addEstaciones(this.txtNombreEstacion.getText(), this.txtLocalidadEstacion.getText(), this.txtDireccionEstacion.getText(), Integer.parseInt(this.txtCodigoPostalEstacion.getText()))){
-            this.tbEstaciones.setModel(f.TablaEstaciones());
-            JOptionPane.showMessageDialog(null, "Estacion Creada");
+        
+        if(this.txtNombreEstacion.getText().isEmpty() || this.txtLocalidadEstacion.getText().isEmpty() || this.txtDireccionEstacion.getText().isEmpty() || this.txtCodigoPostalEstacion.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Rellene todos los campos");
+        
         }else{
-            JOptionPane.showMessageDialog(null, "Error al insertar");
+            if(f.addEstaciones(this.txtNombreEstacion.getText(), this.txtLocalidadEstacion.getText(), this.txtDireccionEstacion.getText(), Integer.parseInt(this.txtCodigoPostalEstacion.getText()))){
+            JOptionPane.showMessageDialog(null, "estacion creada");
+            this.tbEstaciones.setModel(f.TablaEstaciones());
+            
+            this.btnNuevaEstacion.setEnabled(true);
+            this.btnGuardarEstacion.setEnabled(false);
+            this.btnEliminarEstacion.setEnabled(false);
+            this.btnModificarEstacion.setEnabled(false);
+            
+            this.txtNombreEstacion.setEditable(false);
+            this.txtDireccionEstacion.setEditable(false);
+            this.txtLocalidadEstacion.setEditable(false);
+            this.txtCodigoPostalEstacion.setEditable(false);
+        
+            this.txtNombreEstacion.setText("");
+            this.txtDireccionEstacion.setText("");
+            this.txtLocalidadEstacion.setText("");
+            this.txtCodigoPostalEstacion.setText("");
+            
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "error al añadir una estación");
+        
+    }
         }
     }//GEN-LAST:event_btnGuardarEstacionActionPerformed
 
     private void btnEliminarEstacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarEstacionActionPerformed
-        
+        if(f.deleteEstacion(Integer.parseInt(this.txtCodigoEstacion.getText()))){
+            this.tbEstaciones.setModel(f.TablaEstaciones());
+            JOptionPane.showMessageDialog(null, "estacion eliminada");
+            
+            this.btnNuevaEstacion.setEnabled(true);
+            this.btnGuardarEstacion.setEnabled(false);
+            this.btnEliminarEstacion.setEnabled(false);
+            this.btnModificarEstacion.setEnabled(false);
+            
+            this.txtNombreEstacion.setEditable(false);
+            this.txtDireccionEstacion.setEditable(false);
+            this.txtLocalidadEstacion.setEditable(false);
+            this.txtCodigoPostalEstacion.setEditable(false);
+            
+            this.txtCodigoEstacion.setText("");
+            this.txtNombreEstacion.setText("");
+            this.txtDireccionEstacion.setText("");
+            this.txtLocalidadEstacion.setText("");
+            this.txtCodigoPostalEstacion.setText("");
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "error al eliminar una estación");
+        }
     }//GEN-LAST:event_btnEliminarEstacionActionPerformed
 
     private void tbEstacionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbEstacionesMouseClicked
         int fila = this.tbEstaciones.rowAtPoint(evt.getPoint());
             if (fila > -1){                
                 this.txtCodigoEstacion.setText( String.valueOf( this.tbEstaciones.getValueAt(fila, 0) ));
-            }        
+                this.txtNombreEstacion.setText( String.valueOf( this.tbEstaciones.getValueAt(fila, 1) ));
+                this.txtLocalidadEstacion.setText( String.valueOf( this.tbEstaciones.getValueAt(fila, 2) ));
+                this.txtDireccionEstacion.setText( String.valueOf( this.tbEstaciones.getValueAt(fila, 3) ));
+                this.txtCodigoPostalEstacion.setText( String.valueOf( this.tbEstaciones.getValueAt(fila, 4) ));
+                
+            }
+            
+            this.btnNuevaEstacion.setEnabled(true);
+            this.btnGuardarEstacion.setEnabled(false);
+            this.btnEliminarEstacion.setEnabled(true);
+            this.btnModificarEstacion.setEnabled(true);
+            
+            this.txtNombreEstacion.setEditable(true);
+            this.txtDireccionEstacion.setEditable(true);
+            this.txtLocalidadEstacion.setEditable(true);
+            this.txtCodigoPostalEstacion.setEditable(true);
+            
+            
     }//GEN-LAST:event_tbEstacionesMouseClicked
 
     private void btnSalirEstacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirEstacionActionPerformed
         Estaciones.dispose();
     }//GEN-LAST:event_btnSalirEstacionActionPerformed
+
+    private void btnModificarEstacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarEstacionActionPerformed
+        
+        if(this.txtCodigoEstacion.getText().isEmpty() || this.txtNombreEstacion.getText().isEmpty() || this.txtLocalidadEstacion.getText().isEmpty() || this.txtDireccionEstacion.getText().isEmpty() || this.txtCodigoPostalEstacion.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Rellene todos los campos");
+        }else{
+            if(f.modificarEstacion(Integer.parseInt(this.txtCodigoEstacion.getText()), this.txtNombreEstacion.getText(), this.txtLocalidadEstacion.getText(), this.txtDireccionEstacion.getText(), Integer.parseInt(this.txtCodigoPostalEstacion.getText()))){
+            this.tbEstaciones.setModel(f.TablaEstaciones());
+            JOptionPane.showMessageDialog(null, "Estacion modificada");
+            
+            this.btnNuevaEstacion.setEnabled(true);
+            this.btnGuardarEstacion.setEnabled(false);
+            this.btnEliminarEstacion.setEnabled(false);
+            this.btnModificarEstacion.setEnabled(false);
+            
+            this.txtNombreEstacion.setEditable(false);
+            this.txtDireccionEstacion.setEditable(false);
+            this.txtLocalidadEstacion.setEditable(false);
+            this.txtCodigoPostalEstacion.setEditable(false);
+            
+            this.txtCodigoEstacion.setText("");
+            this.txtNombreEstacion.setText("");
+            this.txtDireccionEstacion.setText("");
+            this.txtLocalidadEstacion.setText("");
+            this.txtCodigoPostalEstacion.setText("");
+        }else{
+            JOptionPane.showMessageDialog(null, "error el modificar la estación");
+        }
+        }
+    }//GEN-LAST:event_btnModificarEstacionActionPerformed
+
+    private void tbCocherasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbCocherasMouseClicked
+        int fila = this.tbCocheras.rowAtPoint(evt.getPoint());
+            if (fila > -1){                
+                this.txtCodigoCochera.setText( String.valueOf( this.tbCocheras.getValueAt(fila, 0) ));
+                this.txtCapacidadCochera.setText( String.valueOf( this.tbCocheras.getValueAt(fila, 1) ));
+                
+                
+            } 
+            
+            this.btnNuevaCochera.setEnabled(true);
+            this.btnGuardarCochera.setEnabled(false);
+            this.btnEliminarCochera.setEnabled(true);
+            this.btnModificarCochera.setEnabled(true);
+            
+            this.txtCapacidadCochera.setEditable(true);
+    }//GEN-LAST:event_tbCocherasMouseClicked
+
+    private void btnGuardarCocheraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarCocheraActionPerformed
+        if(this.txtCapacidadCochera.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Rellene todos los campos");
+        }else{
+            if(f.addCochera(Integer.parseInt(this.txtCapacidadCochera.getText()))){
+            this.tbCocheras.setModel(f.TablaCocheras());
+            JOptionPane.showMessageDialog(null, "garaje añadido");
+            
+            this.btnGuardarCochera.setEnabled(false);
+            this.btnNuevaCochera.setEnabled(true);
+            this.btnEliminarCochera.setEnabled(false);
+            this.btnModificarCochera.setEnabled(false);
+            
+            this.txtCapacidadCochera.setEditable(false);
+            
+            this.txtCodigoCochera.setText("");
+            this.txtCapacidadCochera.setText("");
+        }else{
+            JOptionPane.showMessageDialog(null, "error al añadir cochera");
+        }
+        }
+    }//GEN-LAST:event_btnGuardarCocheraActionPerformed
+
+    private void btnEliminarCocheraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarCocheraActionPerformed
+        if(f.deleteCochera(Integer.parseInt(this.txtCodigoCochera.getText()))){
+            this.tbCocheras.setModel(f.TablaCocheras());
+            JOptionPane.showMessageDialog(null, "cochera eliminada");
+            
+            this.btnNuevaCochera.setEnabled(true);
+            this.btnGuardarCochera.setEnabled(false);
+            this.btnEliminarCochera.setEnabled(false);
+            this.btnModificarCochera.setEnabled(false);
+            
+            this.txtCapacidadCochera.setEditable(false);
+            
+            this.txtCodigoCochera.setText("");
+            this.txtCapacidadCochera.setText("");
+        }else{
+            JOptionPane.showMessageDialog(null, "error al eliminar cochera");
+        }
+    }//GEN-LAST:event_btnEliminarCocheraActionPerformed
+
+    private void btnModificarCocheraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarCocheraActionPerformed
+        if(this.txtCapacidadCochera.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Rellene todos los campos");
+        }else{
+            if(f.modificarCochera(Integer.parseInt(this.txtCodigoCochera.getText()), Integer.parseInt(this.txtCapacidadCochera.getText()))){
+                this.tbCocheras.setModel(f.TablaCocheras());
+                JOptionPane.showMessageDialog(null, "cochera modificada");
+                
+                this.btnNuevaCochera.setEnabled(true);
+                this.btnGuardarCochera.setEnabled(false);
+                this.btnEliminarCochera.setEnabled(false);
+                this.btnModificarCochera.setEnabled(false);
+                
+                this.txtCapacidadCochera.setEditable(false);
+                
+                this.txtCodigoCochera.setText("");
+                this.txtCapacidadCochera.setText("");
+            }else{
+                JOptionPane.showMessageDialog(null, "error al modificar cochera");
+            }
+            }
+    }//GEN-LAST:event_btnModificarCocheraActionPerformed
+
+    private void btnSalirCocheraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirCocheraActionPerformed
+       Cocheras.dispose();
+    }//GEN-LAST:event_btnSalirCocheraActionPerformed
+
+    private void btnNuevaEstacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevaEstacionActionPerformed
+        this.btnNuevaEstacion.setEnabled(true);
+        this.btnGuardarEstacion.setEnabled(true);
+        this.btnModificarEstacion.setEnabled(false);
+        this.btnEliminarEstacion.setEnabled(false);
+        
+        this.txtNombreEstacion.setEditable(true);
+        this.txtDireccionEstacion.setEditable(true);
+        this.txtLocalidadEstacion.setEditable(true);
+        this.txtCodigoPostalEstacion.setEditable(true);
+        
+        this.txtCodigoEstacion.setText("");
+        this.txtNombreEstacion.setText("");
+        this.txtDireccionEstacion.setText("");
+        this.txtLocalidadEstacion.setText("");
+        this.txtCodigoPostalEstacion.setText("");
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_btnNuevaEstacionActionPerformed
+
+    private void btnNuevaCocheraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevaCocheraActionPerformed
+        this.btnNuevaCochera.setEnabled(true);
+        this.btnGuardarCochera.setEnabled(true);
+        this.btnEliminarCochera.setEnabled(false);
+        this.btnModificarCochera.setEnabled(false);
+        
+        this.txtCapacidadCochera.setEditable(true);
+        
+        this.txtCapacidadCochera.setText("");
+        this.txtCodigoCochera.setText("");
+    }//GEN-LAST:event_btnNuevaCocheraActionPerformed
 
     /**
      * @param args the command line arguments
@@ -390,17 +808,25 @@ fachada f = new fachada();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JDialog Cocheras;
     public javax.swing.JDialog Estaciones;
+    public javax.swing.JButton btnCocheras;
+    public javax.swing.JButton btnEliminarCochera;
     public javax.swing.JButton btnEliminarEstacion;
     public javax.swing.JButton btnEstaciones;
+    public javax.swing.JButton btnGuardarCochera;
     public javax.swing.JButton btnGuardarEstacion;
     public javax.swing.JButton btnLineas;
+    public javax.swing.JButton btnModificarCochera;
     public javax.swing.JButton btnModificarEstacion;
+    public javax.swing.JButton btnNuevaCochera;
     public javax.swing.JButton btnNuevaEstacion;
+    public javax.swing.JButton btnSalirCochera;
     public javax.swing.JButton btnSalirEstacion;
     public javax.swing.JButton btnTrenes;
-    public javax.swing.JButton btnViajes;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -409,8 +835,14 @@ fachada f = new fachada();
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable tbCocheras;
     private javax.swing.JTable tbEstaciones;
+    private javax.swing.JTextField txtCapacidadCochera;
+    private javax.swing.JTextField txtCodigoCochera;
     private javax.swing.JTextField txtCodigoEstacion;
     public javax.swing.JFormattedTextField txtCodigoPostalEstacion;
     public javax.swing.JTextField txtDireccionEstacion;

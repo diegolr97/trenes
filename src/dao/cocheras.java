@@ -13,8 +13,9 @@ import javax.swing.table.DefaultTableModel;
  */
 public interface cocheras {
     public boolean addCochera(int capacidad);
-    public boolean deleteCochera(int cod_cochera);
+    public boolean deleteCochera(int codCochera);
     public DefaultTableModel TablaCocheras();
+    public boolean modificarCochera(int codCochera, int capacidad);
     
     
 }

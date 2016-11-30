@@ -13,7 +13,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public interface estaciones {
     public boolean addEstacion(String nombre, String localidad, String direccion, int codPostal);
-    public boolean deleteEstacion(int cod_estacion);
+    public boolean deleteEstacion(int codEstacion);
+    public boolean modificarEstacion(int codEstacion, String nombre, String localidad, String direccion, int codPostal);
     public DefaultTableModel TablaEstaciones();
     
 //    public int numeroEstacion();
