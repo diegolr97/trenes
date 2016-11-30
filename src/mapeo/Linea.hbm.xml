@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 30-nov-2016 14:10:39 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="mapeo.Linea" table="linea" catalog="dam20_trenes" optimistic-lock="version">
+        <id name="codLinea" type="java.lang.Integer">
+            <column name="cod_linea" />
+            <generator class="identity" />
+        </id>
+        <property name="empresa" type="string">
+            <column name="empresa" length="100" not-null="true" />
+        </property>
+        <property name="tipo" type="string">
+            <column name="tipo" length="100" not-null="true" />
+        </property>
+        <set name="lineaestacions" table="lineaestacion" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="linea_cod_linea" not-null="true" />
+            </key>
+            <one-to-many class="mapeo.Lineaestacion" />
+        </set>
+        <set name="trens" table="tren" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="linea_cod_linea" not-null="true" />
+            </key>
+            <one-to-many class="mapeo.Tren" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 30-nov-2016 14:10:39 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="mapeo.Viaje" table="viaje" catalog="dam20_trenes" optimistic-lock="version">
+        <composite-id name="id" class="mapeo.ViajeId">
+            <key-property name="codViaje" type="int">
+                <column name="cod_viaje" />
+            </key-property>
+            <key-property name="estacionCodEstacion" type="int">
+                <column name="estacion_cod_estacion" />
+            </key-property>
+            <key-property name="estacionCodEstacion1" type="int">
+                <column name="estacion_cod_estacion1" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="estacionByEstacionCodEstacion1" class="mapeo.Estacion" update="false" insert="false" fetch="select">
+            <column name="estacion_cod_estacion1" not-null="true" />
+        </many-to-one>
+        <many-to-one name="estacionByEstacionCodEstacion" class="mapeo.Estacion" update="false" insert="false" fetch="select">
+            <column name="estacion_cod_estacion" not-null="true" />
+        </many-to-one>
+        <property name="ciudad" type="string">
+            <column name="ciudad" length="100" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

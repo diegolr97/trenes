@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://192.168.28.3:3306/dam20_trenes?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">dam20</property>
+    <property name="hibernate.connection.password">salesianas</property>
+    <mapping resource="mapeo/Lineaestacion.hbm.xml"/>
+    <mapping resource="mapeo/Viaje.hbm.xml"/>
+    <mapping resource="mapeo/Cochera.hbm.xml"/>
+    <mapping resource="mapeo/Linea.hbm.xml"/>
+    <mapping resource="mapeo/Tren.hbm.xml"/>
+    <mapping resource="mapeo/Acceso.hbm.xml"/>
+    <mapping resource="mapeo/Estacion.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

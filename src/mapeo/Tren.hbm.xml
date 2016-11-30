@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 30-nov-2016 14:10:39 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="mapeo.Tren" table="tren" catalog="dam20_trenes" optimistic-lock="version">
+        <composite-id name="id" class="mapeo.TrenId">
+            <key-property name="codTren" type="int">
+                <column name="cod_tren" />
+            </key-property>
+            <key-property name="lineaCodLinea" type="int">
+                <column name="linea_cod_linea" />
+            </key-property>
+            <key-property name="cocheraCodCochera" type="int">
+                <column name="cochera_cod_cochera" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="cochera" class="mapeo.Cochera" update="false" insert="false" fetch="select">
+            <column name="cochera_cod_cochera" not-null="true" />
+        </many-to-one>
+        <many-to-one name="linea" class="mapeo.Linea" update="false" insert="false" fetch="select">
+            <column name="linea_cod_linea" not-null="true" />
+        </many-to-one>
+        <property name="modelo" type="string">
+            <column name="modelo" length="45" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

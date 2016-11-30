@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 30-nov-2016 14:10:39 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="mapeo.Estacion" table="estacion" catalog="dam20_trenes" optimistic-lock="version">
+        <id name="codEstacion" type="java.lang.Integer">
+            <column name="cod_estacion" />
+            <generator class="identity" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="100" not-null="true" />
+        </property>
+        <property name="localidad" type="string">
+            <column name="localidad" length="100" not-null="true" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="direccion" length="100" not-null="true" />
+        </property>
+        <property name="codPostal" type="int">
+            <column name="codPostal" not-null="true" />
+        </property>
+        <set name="lineaestacions" table="lineaestacion" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="estacion_cod_estacion" not-null="true" />
+            </key>
+            <one-to-many class="mapeo.Lineaestacion" />
+        </set>
+        <set name="accesos" table="acceso" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="estacion_cod_estacion" not-null="true" />
+            </key>
+            <one-to-many class="mapeo.Acceso" />
+        </set>
+        <set name="viajesForEstacionCodEstacion1" table="viaje" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="estacion_cod_estacion1" not-null="true" />
+            </key>
+            <one-to-many class="mapeo.Viaje" />
+        </set>
+        <set name="viajesForEstacionCodEstacion" table="viaje" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="estacion_cod_estacion" not-null="true" />
+            </key>
+            <one-to-many class="mapeo.Viaje" />
+        </set>
+    </class>
+</hibernate-mapping>
